@@ -1,0 +1,31 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of accounts</f:section>
+
+<f:section name="Header">
+</f:section>
+
+<f:section name="Footer">
+</f:section>
+
+<f:section name="Content">
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<f:render partial="FlashMessages" />
+				<f:if condition="{accounts}">
+					<f:then>
+						<ul>
+							<f:for each="{accounts}" as="account">
+								<li><f:link.action action="show" arguments="{account: account}">{account.name}</f:link.action> <f:link.action action="edit" arguments="{account: account}">Edit</f:link.action> <f:link.action action="delete" arguments="{account: account}">Delete</f:link.action></li>
+							</f:for>
+						</ul>
+					</f:then>
+					<f:else>
+						<p>No accounts created yet.</p>
+					</f:else>
+				</f:if>
+			</div>
+		</div>
+	</div>
+</f:section>

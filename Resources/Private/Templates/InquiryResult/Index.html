@@ -1,0 +1,30 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of inquiry results</f:section>
+
+<f:section name="Header">
+</f:section>
+
+<f:section name="Footer">
+</f:section>
+
+<f:section name="Content">
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<f:if condition="{inquiryResults}">
+					<f:then>
+						<ul>
+							<f:for each="{inquiryResults}" as="inquiryResult">
+								<li><f:link.action action="show" arguments="{inquiryResult: inquiryResult}">{inquiryResult.name}</f:link.action> <f:link.action action="edit" arguments="{inquiryResult: inquiryResult}">Edit</f:link.action> <f:link.action action="delete" arguments="{inquiryResult: inquiryResult}">Delete</f:link.action></li>
+							</f:for>
+						</ul>
+					</f:then>
+					<f:else>
+						<p>No inquiry results created yet.</p>
+					</f:else>
+				</f:if>
+			</div>
+		</div>
+	</div>
+</f:section>

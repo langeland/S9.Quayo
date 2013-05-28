@@ -1,0 +1,33 @@
+#                                                                        #
+# Example Settings                                                       #
+#                                                                        #
+# This file contains settings for various parts of the application.      #
+# Copy this file to Settings.yaml, and adjust as necessary.              #
+#                                                                        #
+# Please refer to the default settings file(s) or the manuals for        #
+# possible configuration options.                                        #
+#                                                                        #
+
+
+S9:
+  Quayo:
+    Labels:
+      ProjectName: 'Quayo'
+    Runners:
+      Google:
+        uri: 'https://www.google.dk/search?q=%s&start=%s'
+        maxResults: 100
+      Defaults:
+        maxPages: 10
+        userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:19.0) Gecko/20100101 Firefox/19.0'
+
+TYPO3:
+  Flow:
+    security:
+      enable: TRUE
+      authentication:
+        authenticationStrategy: oneToken
+        providers:
+          DefaultProvider:
+            provider: PersistedUsernamePasswordProvider
+      

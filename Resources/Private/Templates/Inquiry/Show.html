@@ -1,0 +1,58 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Show inquiry "{inquiry.name}"</f:section>
+
+<f:section name="Header">
+</f:section>
+
+<f:section name="Footer">
+</f:section>
+
+<f:section name="Content">
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+			<f:render partial="FlashMessages" />
+				<table class="table table-bordered">
+					<tr>
+						<th>Name</th>
+						<td>{inquiry.name}</td>
+					</tr>
+					<tr>
+						<th>description</th>
+						<td>{inquiry.description}</td>
+					</tr>
+					<tr>
+						<th>searchTerm</th>
+						<td>{inquiry.searchTerm}</td>
+					</tr>
+					<tr>
+						<th>searchDomain</th>
+						<td>{inquiry.searchDomain}</td>
+					</tr>
+					<tr>
+						<th>status</th>
+						<td>{inquiry.status}</td>
+					</tr>
+					<tr>
+						<th>lastExecution</th>
+						<td>{inquiry.lastExecution}</td>
+					</tr>
+				</table>
+				
+				
+				<table class="table table-bordered">
+				<f:for each="{inquiry.results}" as="result">
+					<tr>
+						<td>{result.rank}</td>
+						<td>{result.executionTime}</td>
+					</tr>
+				</f:for>
+				</table>
+				
+				<f:debug>{inquiry}</f:debug>
+				
+			</div>
+		</div>
+	</div>
+</f:section>

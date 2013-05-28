@@ -1,0 +1,33 @@
+<f:layout name="Default" />
+
+<f:section name="Title">A list of inquiries</f:section>
+
+<f:section name="Header">
+</f:section>
+
+<f:section name="Footer">
+</f:section>
+
+<f:section name="Content">
+
+
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<f:render partial="FlashMessages" />
+				<f:if condition="{inquiries}">
+					<f:then>
+						<ul>
+							<f:for each="{inquiries}" as="inquiry">
+								<li><f:link.action action="show" arguments="{inquiry: inquiry}">{inquiry.name}</f:link.action> <f:link.action action="edit" arguments="{inquiry: inquiry}">Edit</f:link.action> <f:link.action action="delete" arguments="{inquiry: inquiry}">Delete</f:link.action></li>
+							</f:for>
+						</ul>
+					</f:then>
+					<f:else>
+						<p>No inquiries created yet.</p>
+					</f:else>
+				</f:if>
+			</div>
+		</div>
+	</div>
+</f:section>

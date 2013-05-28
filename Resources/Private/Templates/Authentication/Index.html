@@ -1,0 +1,149 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Index view of Standard controller</f:section>
+
+<f:section name="Header">
+	<link rel='stylesheet' type='text/css' href='../../../Public/Contrib/fullcalendar/fullcalendar.css' />
+	<link rel='stylesheet' type='text/css' href='../../../Public/Contrib/fullcalendar/fullcalendar.print.css' media='print' />
+</f:section>
+
+<f:section name="Footer">
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+	<script type='text/javascript' src='../../../Public/JavaScript/StandardController.js'></script>
+</f:section>
+
+<f:section name="Content">
+
+
+
+	<div class="container">
+		<div class="row">
+			<div class="span3">
+				<div class="well sidebar-nav">
+					<ul id="external-events" class="nav nav-list">
+						<li class="nav-header">Sidebar</li>
+						<li class="active"><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li class="nav-header">Sidebar</li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li class="nav-header">Sidebar</li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+					</ul>
+				</div>
+				<!--/.well -->
+			</div>
+			<div class="span9">
+				<f:flashMessages class="flashmessages" />
+				<h1>
+					<f:render section="Title" />
+				</h1>
+				<div id='calendar'></div>
+			</div>
+		</div>
+	</div>
+	<!-- /container -->
+
+
+	<div class="container">
+		<div class="row">
+			<div class="span3">
+				<div class="well sidebar-nav"></div>
+				<!--/.well -->
+			</div>
+			<div class="span9">
+				<h1>IfAccess / then / else"</h1>
+				<f:security.ifAccess resource="someResource">
+					<f:then>
+						<b>Then:</b> This is being shown in case you have access.
+			</f:then>
+					<f:else>
+						<b>Else:</b> This is being displayed in case you do not have access.
+			</f:else>
+				</f:security.ifAccess>
+			</div>
+		</div>
+	</div>
+	<!-- /container -->
+
+
+	<div class="container">
+		<div class="row">
+			<div class="span3">
+				<div class="well sidebar-nav"></div>
+				<!--/.well -->
+			</div>
+			<div class="span9">
+				<h1>ifAuthenticated / then / else"</h1>
+				<f:security.ifAuthenticated>
+					<f:then>
+						<b>Then:</b> This is being shown in case you have access.
+						<f:link.action action="logout" controller="Authentication" subpackage="Security\Authentication" package="TYPO3.FLOW">Logout</f:link.action>
+					</f:then>
+					<f:else>
+						<b>Else:</b> This is being displayed in case you do not have access.<br />
+						{f:uri.action(action:'authenticate', controller:'Authentication', subpackage:'Security\Authentication' package:'TYPO3.FLOW')}
+						<f:form action="authenticate" controller="Authentication" subpackage="Security\Authentication" package="TYPO3.FLOW" class="form-horizontal">
+							<div class="control-group">
+								<label class="control-label" for="inputEmail">Email</label>
+								<div class="controls">
+									<f:form.textfield id="inputEmail" name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="inputPassword">Password</label>
+								<div class="controls">
+									<f:form.password id="inputPassword" name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" />
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<label class="checkbox"> <input type="checkbox"> Remember me
+									</label>
+									<f:form.submit value="Sign in" class="btn" />
+								</div>
+							</div>
+						</f:form>
+					</f:else>
+				</f:security.ifAuthenticated>
+			</div>
+		</div>
+	</div>
+	<!-- /container -->
+
+
+	<div class="container">
+		<div class="row">
+			<div class="span3">
+				<div class="well sidebar-nav"></div>
+				<!--/.well -->
+			</div>
+			<div class="span9">
+				<h1>ifHasRole / then / else"</h1>
+				<f:security.ifHasRole role="Administrator">
+					<f:then>
+						<b>Then:</b> This is being shown in case you have the role.
+			</f:then>
+					<f:else>
+						<b>Else:</b> This is being displayed in case you do not have the role.
+			</f:else>
+				</f:security.ifHasRole>
+			</div>
+		</div>
+	</div>
+	<!-- /container -->
+
+
+
+
+
+
+</f:section>

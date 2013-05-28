@@ -1,0 +1,24 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Edit inquiry result "{inquiryResult.name}"</f:section>
+
+<f:section name="Header">
+</f:section>
+
+<f:section name="Footer">
+</f:section>
+
+<f:section name="Content">
+	<f:form action="update" object="{inquiryResult}" name="inquiryResult">
+		<ol>
+			<li>
+				<label for="name">Name</label>
+				<f:form.textfield property="name" id="name" />
+			</li>
+		
+			<li>
+				<f:form.submit value="Update"/>
+			</li>
+		</ol>
+	</f:form>
+</f:section>

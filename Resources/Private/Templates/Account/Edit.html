@@ -1,0 +1,25 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Edit account "{account.name}"</f:section>
+
+<f:section name="Header">
+</f:section>
+
+<f:section name="Footer">
+</f:section>
+
+<f:section name="Content">
+	<f:render partial="FlashMessages" />
+	<f:form action="update" object="{account}" name="account">
+		<ol>
+			<li>
+				<label for="name">Name</label>
+				<f:form.textfield property="name" id="name" />
+			</li>
+		
+			<li>
+				<f:form.submit value="Update"/>
+			</li>
+		</ol>
+	</f:form>
+</f:section>

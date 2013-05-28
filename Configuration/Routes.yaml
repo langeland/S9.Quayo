@@ -1,0 +1,51 @@
+#                                                                        #
+# Routes configuration                                                   #
+#                                                                        #
+# This file contains the configuration for the MVC router.               #
+# Just add your own modifications as necessary.                          #
+#                                                                        #
+# Please refer to the Flow manual for possible configuration options.   #
+#                                                                        #
+
+##
+# Subroutes from the Welcome package.
+#
+# If the package "Welcome" is installed, its fallback route will point to an
+# informative welcome screen.
+
+
+-
+  name: 'Quayo local'
+  uriPattern: ''
+  defaults:
+    '@package': 'S9.Quayo'
+    '@controller': 'Standard'
+    '@action': 'index'
+    '@format':     'html'
+
+
+-
+  name: 'Inquiry index'
+  uriPattern:    'inquirys'
+  defaults:
+    '@package':    'S9.Quayo'
+    '@controller': 'Inquiry'
+    '@action':     'index'
+    '@format':     'html'
+    
+
+-
+  name: 'Inquiry actions'
+  uriPattern:    'inquirys/{@action}'
+  defaults:
+    '@controller': 'Inquiry'
+    
+-
+  name: 'Single inquiry actions'
+  uriPattern:     'inquirys/{inquiry}/{@action}'
+  defaults:
+    '@controller':  'Inquiry'
+  routeParts:
+    post:
+      objectType: 'S9\Quayo\Domain\Model\Inquiry'
+      uriPattern: '{name}'
